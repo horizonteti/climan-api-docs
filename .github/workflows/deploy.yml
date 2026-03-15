@@ -97,7 +97,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://npm.pkg.github.com
-          scope: '@libre-net-pe'
+          scope: '@horizonteti'
 
       - name: Enable corepack
         run: corepack enable
@@ -129,5 +129,3 @@ jobs:
       - name: Publish to GitHub Packages
         run: yarn npm publish
         working-directory: sdk
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
