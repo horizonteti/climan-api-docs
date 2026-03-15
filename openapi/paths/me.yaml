@@ -22,9 +22,11 @@ get:
     '401':
       description: No autorizado. Token ausente o inválido.
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '../components/schemas/ErrorResponse.yaml'
           example:
-            code: UNAUTHORIZED
-            message: Token de acceso ausente o inválido.
+            type: https://api.climan.app/errors/unauthorized
+            title: No autorizado
+            status: 401
+            detail: Token de acceso ausente o inválido.

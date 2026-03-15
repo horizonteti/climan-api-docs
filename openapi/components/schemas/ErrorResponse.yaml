@@ -1,11 +1,29 @@
 type: object
 required:
-  - code
-  - message
+  - type
+  - title
+  - status
+  - detail
 properties:
-  code:
+  type:
     type: string
-    description: Código de error legible por máquina.
-  message:
+    format: uri
+    description: URI que identifica el tipo de problema.
+    example: https://api.climan.app/errors/account-deactivated
+  title:
     type: string
-    description: Mensaje de error en español para mostrar al usuario.
+    description: Resumen corto y legible del tipo de problema.
+    example: Cuenta desactivada
+  status:
+    type: integer
+    description: Código de estado HTTP.
+    example: 401
+  detail:
+    type: string
+    description: Explicación en español del problema específico ocurrido.
+    example: La cuenta del usuario está desactivada.
+  instance:
+    type: string
+    format: uri
+    description: URI que identifica la ocurrencia específica del problema. Opcional.
+    example: https://api.climan.app/errors/account-deactivated/123

@@ -27,31 +27,39 @@ post:
     '401':
       description: No autorizado.
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '../components/schemas/ErrorResponse.yaml'
           examples:
             cuenta_desactivada:
               summary: Cuenta desactivada
               value:
-                code: ACCOUNT_DEACTIVATED
-                message: La cuenta del usuario está desactivada.
+                type: https://api.climan.app/errors/account-deactivated
+                title: Cuenta desactivada
+                status: 401
+                detail: La cuenta del usuario está desactivada.
             correo_no_coincide:
               summary: Correo electrónico no coincide
               value:
-                code: EMAIL_MISMATCH
-                message: El correo electrónico del token no coincide con el registro.
+                type: https://api.climan.app/errors/email-mismatch
+                title: Correo electrónico no coincide
+                status: 401
+                detail: El correo electrónico del token no coincide con el registro.
             token_invalido:
               summary: Token de Firebase inválido
               value:
-                code: INVALID_FIREBASE_TOKEN
-                message: El token de Firebase es inválido o ha expirado.
+                type: https://api.climan.app/errors/invalid-firebase-token
+                title: Token de Firebase inválido
+                status: 401
+                detail: El token de Firebase es inválido o ha expirado.
     '404':
       description: No encontrado.
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '../components/schemas/ErrorResponse.yaml'
           example:
-            code: STAFF_NOT_FOUND
-            message: No se encontró ningún miembro del personal con ese correo en la clínica indicada.
+            type: https://api.climan.app/errors/staff-not-found
+            title: Personal no encontrado
+            status: 404
+            detail: No se encontró ningún miembro del personal con ese correo en la clínica indicada.

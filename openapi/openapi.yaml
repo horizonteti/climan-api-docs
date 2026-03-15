@@ -40,5 +40,5 @@ components:
       $ref: 'components/schemas/AuthTokenRequest.yaml'
     AuthTokenResponse:
       $ref: 'components/schemas/AuthTokenResponse.yaml'
-    ErrorResponse:
+    Problem:
       $ref: 'components/schemas/ErrorResponse.yaml'
