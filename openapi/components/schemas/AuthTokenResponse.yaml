@@ -1,0 +1,18 @@
+type: object
+required:
+  - access_token
+  - token_type
+  - expires_in
+properties:
+  access_token:
+    type: string
+    description: JWT de plataforma de corta duración.
+  token_type:
+    type: string
+    enum:
+      - Bearer
+    description: Tipo de token. Siempre `Bearer`.
+  expires_in:
+    type: integer
+    description: Tiempo de expiración del token en segundos.
+    example: 3600

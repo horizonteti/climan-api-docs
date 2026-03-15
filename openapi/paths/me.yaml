@@ -1,0 +1,32 @@
+get:
+  summary: Obtener perfil del miembro del personal autenticado
+  operationId: getMe
+  tags:
+    - Staff
+  responses:
+    '200':
+      description: Perfil del miembro del personal.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/StaffProfile.yaml'
+          example:
+            id: staff_xyz789
+            clinic_id: clinic_abc123
+            full_name: Dra. Ana López
+            email: ana.lopez@clinica.com
+            status: active
+            roles:
+              - specialist
+            specialty: Cardiología
+    '401':
+      description: No autorizado. Token ausente o inválido.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../components/schemas/ErrorResponse.yaml'
+          example:
+            type: https://api.climan.app/errors/unauthorized
+            title: No autorizado
+            status: 401
+            detail: Token de acceso ausente o inválido.

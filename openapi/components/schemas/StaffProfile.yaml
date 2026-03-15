@@ -1,0 +1,46 @@
+type: object
+required:
+  - id
+  - clinic_id
+  - full_name
+  - email
+  - status
+  - roles
+  - specialty
+properties:
+  id:
+    type: string
+    description: Identificador único del miembro del personal.
+  clinic_id:
+    type: string
+    description: Identificador de la clínica a la que pertenece.
+  full_name:
+    type: string
+    description: Nombre completo del miembro del personal.
+  email:
+    type: string
+    format: email
+    description: Correo electrónico del miembro del personal.
+  status:
+    type: string
+    description: Estado de la cuenta del miembro del personal.
+    enum:
+      - active
+      - inactive
+  roles:
+    type: array
+    description: Roles asignados al miembro del personal en la clínica, resueltos desde la base de datos.
+    items:
+      type: string
+      enum:
+        - clinic_admin
+        - receptionist
+        - specialist
+        - sales_advisor
+  specialty:
+    type:
+      - string
+      - 'null'
+    description: >
+      Especialidad médica del miembro del personal. Solo aplica cuando
+      `roles` incluye `specialist`. En caso contrario será `null`.
