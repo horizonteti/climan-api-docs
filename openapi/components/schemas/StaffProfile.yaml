@@ -38,9 +38,8 @@ properties:
         - specialist
         - sales_advisor
   specialty:
-    type:
-      - string
-      - 'null'
+    type: string
+    nullable: true
     description: >
       Especialidad médica del miembro del personal. Solo aplica cuando
       `roles` incluye `specialist`. En caso contrario será `null`.

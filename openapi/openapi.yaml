@@ -1,10 +1,9 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   version: 1.0.0
   title: Climan API
   license:
     name: Proprietary
-    identifier: LicenseRef-Proprietary
   description: >
     API for clinic management system. Authentication is handled via Firebase
     (Google SSO). Users exchange a Firebase ID token for a short-lived platform
