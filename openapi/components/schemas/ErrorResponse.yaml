@@ -1,0 +1,11 @@
+type: object
+required:
+  - code
+  - message
+properties:
+  code:
+    type: string
+    description: Código de error legible por máquina.
+  message:
+    type: string
+    description: Mensaje de error en español para mostrar al usuario.

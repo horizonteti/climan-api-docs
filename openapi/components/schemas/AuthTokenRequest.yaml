@@ -1,0 +1,11 @@
+type: object
+required:
+  - firebase_token
+  - clinic_id
+properties:
+  firebase_token:
+    type: string
+    description: Token de ID de Firebase obtenido tras la autenticación con Google SSO.
+  clinic_id:
+    type: string
+    description: Identificador de la clínica a la que pertenece el miembro del personal.

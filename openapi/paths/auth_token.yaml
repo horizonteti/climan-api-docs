@@ -1,0 +1,57 @@
+post:
+  summary: Intercambiar token de Firebase por JWT de plataforma
+  operationId: postAuthToken
+  tags:
+    - Auth
+  security: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/AuthTokenRequest.yaml'
+        example:
+          firebase_token: eyJhbGciOiJSUzI1NiIsImtpZCI6Ii4uLiJ9...
+          clinic_id: clinic_abc123
+  responses:
+    '200':
+      description: Token de acceso emitido correctamente.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/AuthTokenResponse.yaml'
+          example:
+            access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+            token_type: Bearer
+            expires_in: 3600
+    '401':
+      description: No autorizado.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/ErrorResponse.yaml'
+          examples:
+            cuenta_desactivada:
+              summary: Cuenta desactivada
+              value:
+                code: ACCOUNT_DEACTIVATED
+                message: La cuenta del usuario está desactivada.
+            correo_no_coincide:
+              summary: Correo electrónico no coincide
+              value:
+                code: EMAIL_MISMATCH
+                message: El correo electrónico del token no coincide con el registro.
+            token_invalido:
+              summary: Token de Firebase inválido
+              value:
+                code: INVALID_FIREBASE_TOKEN
+                message: El token de Firebase es inválido o ha expirado.
+    '404':
+      description: No encontrado.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/ErrorResponse.yaml'
+          example:
+            code: STAFF_NOT_FOUND
+            message: No se encontró ningún miembro del personal con ese correo en la clínica indicada.
