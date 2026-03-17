@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "packageManager": "yarn@4.10.3",
   "dependencies": {
-    "@redocly/cli": "2.21.1"
+    "@redocly/cli": "2.22.1"
   },
   "private": true,
   "scripts": {
