@@ -1,6 +1,19 @@
 post:
   summary: Intercambiar token de Firebase por JWT de plataforma
   operationId: postAuthToken
+  description: |
+    Exchanges a valid Firebase ID token for a short-lived platform JWT.
+
+    The platform JWT lifetime is controlled by `JWT_EXPIRY_SECONDS` (default: 3600 seconds / 1 hour)
+    and is reflected in the `expires_in` field of the response. **No refresh token is issued.**
+
+    When the platform JWT expires, clients must re-authenticate using the following flow:
+    1. Use the Firebase SDK's silent refresh to obtain a new Firebase ID token — either by listening
+       to `onIdTokenChanged` or by calling `getIdToken(forceRefresh=true)`.
+    2. Re-call `POST /auth/token` with the new Firebase ID token to obtain a fresh platform JWT.
+
+    The Firebase SDK manages Firebase refresh tokens internally; clients do not need to handle
+    them directly.
   tags:
     - Auth
   security: []

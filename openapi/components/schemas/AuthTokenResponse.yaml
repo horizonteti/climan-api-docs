@@ -14,5 +14,8 @@ properties:
     description: Tipo de token. Siempre `Bearer`.
   expires_in:
     type: integer
-    description: Tiempo de expiración del token en segundos.
+    description: >-
+      Platform JWT lifetime in seconds. See the `POST /auth/token` endpoint
+      description for the required re-authentication flow upon expiration.
+      No refresh_token is issued.
     example: 3600
