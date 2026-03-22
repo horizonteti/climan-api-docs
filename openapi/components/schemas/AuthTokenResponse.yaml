@@ -14,5 +14,8 @@ properties:
     description: Tipo de token. Siempre `Bearer`.
   expires_in:
     type: integer
-    description: Tiempo de expiración del token en segundos.
+    description: >-
+      Platform JWT lifetime in seconds. When this duration elapses, re-authenticate via the
+      Firebase SDK (`onIdTokenChanged` / `getIdToken(forceRefresh=true)`) to obtain a new
+      Firebase ID token, then re-call `POST /auth/token`. No refresh_token is issued.
     example: 3600
