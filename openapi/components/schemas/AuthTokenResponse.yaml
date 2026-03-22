@@ -15,7 +15,7 @@ properties:
   expires_in:
     type: integer
     description: >-
-      Platform JWT lifetime in seconds. When this duration elapses, re-authenticate via the
-      Firebase SDK (`onIdTokenChanged` / `getIdToken(forceRefresh=true)`) to obtain a new
-      Firebase ID token, then re-call `POST /auth/token`. No refresh_token is issued.
+      Platform JWT lifetime in seconds. See the `POST /auth/token` endpoint
+      description for the required re-authentication flow upon expiration.
+      No refresh_token is issued.
     example: 3600
